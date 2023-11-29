@@ -12,9 +12,8 @@
 
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="Dtos\" />
     <Folder Include="Features\Products\Command\" />
-    <Folder Include="Features\Products\Queries\Get\" />
+    <Folder Include="Features\Products\Validators\" />
     <Folder Include="Helpers\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Wrappers\" />
