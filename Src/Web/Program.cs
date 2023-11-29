@@ -14,7 +14,7 @@ builder.AddWebServiceCollection();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
 var app = builder.Build();
-
+await app.AddWebAppService().ConfigureAwait(false);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

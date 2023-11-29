@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Persistence.Configurations;
+using Infrastructure.Persistence.SeedData;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -47,7 +48,7 @@ namespace Web
             try
             {
                 await context.Database.MigrateAsync();
-                //await GenerateFakeData.SeedDataAsync(context, loggerFactory);
+                await GenerateFakeData.SeedDataAsync(context, loggerFactory);
             }
             catch (Exception e)
             {
@@ -58,7 +59,7 @@ namespace Web
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-               // app.UseSwaggerDocumentation();
+               //app.UseSwaggerDocumentation();
             }
 
             //access to wwwroot
