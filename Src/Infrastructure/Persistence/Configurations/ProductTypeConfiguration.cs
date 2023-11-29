@@ -1,5 +1,6 @@
 ﻿using Domain.Entities.ProductEntity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +9,11 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Persistence.Configurations
 {
-    public class ApplicationDbContext : DbContext
+    public class ProductTypeConfiguration : IEntityTypeConfiguration<ProductType>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
-        { }
+        public void Configure(EntityTypeBuilder<ProductType> builder)
+        {
         
-        public DbSet<Product> Products => Set<Product>();
-
-
+        }
     }
 }
