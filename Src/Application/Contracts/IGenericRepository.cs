@@ -1,4 +1,5 @@
-﻿using Domain.Entities.Base;
+﻿using Application.Contracts.Specification;
+using Domain.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,10 @@ namespace Application.Contracts
         Task<bool> AnyAsync(CancellationToken cancellationToken);
 
         //Specification
-        //Task<T> GetEntityWithSpec(ISpecification<T> spec, CancellationToken cancellationToken);
-        //Task<IReadOnlyList<T>> ListAsyncSpec(ISpecification<T> spec, CancellationToken cancellationToken);
-        //Task<int> CountAsyncSpec(ISpecification<T> spec, CancellationToken cancellationToken);
-        //Task<List<T>> ToListAsync(CancellationToken cancellationToken);
+        Task<T> GetEntityWithSpec(ISpecification<T> spec, CancellationToken cancellationToken);
+        Task<IReadOnlyList<T>> ListAsyncSpec(ISpecification<T> spec, CancellationToken cancellationToken);
+        Task<int> CountAsyncSpec(ISpecification<T> spec, CancellationToken cancellationToken);
+        Task<List<T>> ToListAsync(CancellationToken cancellationToken);
     }
     //pagination => count , get all , take , skip 
     //sort => name , title , price 
