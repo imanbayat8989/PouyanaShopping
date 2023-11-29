@@ -1,4 +1,6 @@
-﻿using Infrastructure.Persistence.Context;
+﻿using Application.Contracts;
+using Infrastructure.Persistence;
+using Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,7 +33,7 @@ namespace Infrastructure
             //services.AddScoped<ITokenService, TokenService>();
             ////DI
             //services.AddScoped<IBasketRepository, BasketRepository>();
-            //services.AddScoped<IUnitOWork, UnitOWork>();
+            services.AddScoped<IUnitOWork, UnitOWork>();
             return services;
         }
     }
