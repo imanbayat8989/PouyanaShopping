@@ -1,3 +1,4 @@
+using Infrastructure;
 using Web;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //Configurations
 builder.AddWebServiceCollection();
-
+builder.Services.AddInfrastructureServices(builder.Configuration);
 
 var app = builder.Build();
 
