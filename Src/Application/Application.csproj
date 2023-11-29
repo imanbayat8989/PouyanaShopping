@@ -10,4 +10,13 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\" />
+    <Folder Include="Dtos\" />
+    <Folder Include="Features\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Wrappers\" />
+  </ItemGroup>
+
 </Project>

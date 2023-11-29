@@ -7,7 +7,8 @@ namespace Web
 {
     public static class ConfigureService
     {
-        public static IServiceCollection AddWebServiceCollection(this WebApplicationBuilder builder)
+        public static IServiceCollection AddWebConfigureServices(this WebApplicationBuilder builder,
+            IConfiguration configuration)
         {
             // Add services to the container.
             builder.Services.AddControllers();
@@ -16,16 +17,16 @@ namespace Web
             builder.Services.AddEndpointsApiExplorer();
             //builder.Services.AddSwaggerDocumentation();
             //CORS Policy
-            //builder.Services.AddCors(opt =>
-            //{
-            //    opt.AddPolicy("CorsPolicy",
-            //        policy =>
-            //        {
-            //            policy.AllowAnyHeader().AllowAnyMethod()
-            //                .WithOrigins(configuration["CorsAddress:AddressHttp"] ?? string.Empty,
-            //                    configuration["CorsAddress:AddressHttps"] ?? string.Empty);
-            //        });
-            //});
+            builder.Services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsPolicy",
+                    policy =>
+                    {
+                        policy.AllowAnyHeader().AllowAnyMethod()
+                            .WithOrigins(configuration["CorsAddress:AddressHttp"] ?? string.Empty,
+                                configuration["CorsAddress:AddressHttps"] ?? string.Empty);
+                    });
+            });
             //IHttpContext Accessor
             //builder.Services.AddSingleton<ICurrentUserService, CurrentUserUserService>();
             builder.Services.AddHttpContextAccessor();
@@ -59,7 +60,7 @@ namespace Web
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-               //app.UseSwaggerDocumentation();
+                //app.UseSwaggerDocumentation();
             }
 
             //access to wwwroot
@@ -89,7 +90,7 @@ namespace Web
             //            .SelectMany(v => v.Value!.Errors)
             //            .Select(c => c.ErrorMessage).ToList();
 
-            //       // return new BadRequestObjectResult(new ApiToReturn(400, errors));
+            //        return new BadRequestObjectResult(new ApiToReturn(400, errors));
             //    };
             //});
         }
